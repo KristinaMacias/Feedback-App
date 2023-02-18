@@ -1,9 +1,11 @@
 import React from "react";
 
-function Card({children}) {
-    // aboves passes children as props 
+function Card({children, reverse}) {
+    // aboves passes children as props and reverse
+
   return (
-    <div className="card">{children}</div>
+    // if reverse is true, give it a conditional class of 'reverse'. There is separate styling in css for something with class card & reverse
+    <div className={`card ${reverse && 'reverse'}`}>{children}</div>
   );
 }
 
