@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import Card from "./shared/Card";
 
 function FeedbackItem({ item }) {
@@ -10,6 +11,11 @@ function FeedbackItem({ item }) {
         </Card>
     </div>
   );
+}
+
+// setting proptypes
+FeedbackItem.propTypes = {
+  item: PropTypes.object.isRequired
 }
 
 export default FeedbackItem;

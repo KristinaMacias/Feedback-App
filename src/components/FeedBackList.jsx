@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import FeedbackItem from "./FeedbackItem";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-function FeedBackList({ feedback }) {
+function FeedbackList({ feedback }) {
   console.log("feedback as props: ", feedback);
 
   if (!feedback || feedback.length === 0) {
@@ -17,4 +19,8 @@ function FeedBackList({ feedback }) {
   )
 }
 
-export default FeedBackList;
+FeedbackList.propType = {
+  feedback: PropTypes.array
+}
+
+export default FeedbackList;
