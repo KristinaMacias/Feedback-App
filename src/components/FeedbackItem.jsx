@@ -1,24 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import Card from "./shared/Card";
 
-function FeedbackItem() {
-    const [rating, setRating] = useState(0);
-    const [text, setText] = useState('Example of a feedback item');
 
-    //update state hook for rating
-    const handleRatingClick = () => {
-        setRating((prev) => {
-            return prev + 1;
-        })
-    }
-
+function FeedbackItem({ item }) {
   return (
-    <div className="card">
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{text}</div>
-      <button onClick={handleRatingClick}>Submit</button>
-    </div>
-  );
+    <Card>
+      {/* will make item.rating and item.text available to Card component as children */}
+      <div className="num-display">{item.rating}</div>
+      <div className="text-display">{item.text}</div>
+    </Card>
+  )
 }
 
 export default FeedbackItem;

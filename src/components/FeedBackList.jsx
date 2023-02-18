@@ -1,4 +1,5 @@
 import React from "react";
+import FeedbackItem from "./FeedbackItem";
 
 function FeedBackList({ feedback }) {
   console.log("feedback as props: ", feedback);
@@ -9,8 +10,8 @@ function FeedBackList({ feedback }) {
 
   return (
     <div className="feedback-list">
-      {feedback.map((item, index) => (
-        item.rating
+      {feedback.map((item) => (
+        <FeedbackItem key={item.id} item={item}/>
       ))}
     </div>
   )
