@@ -12,6 +12,15 @@ function App() {
     // const [feedback, setFeedback] = useState(FeedbackData);
     const [feedback, setFeedback] = useState(FeedbackData);
 
+    const deleteFeedback = (id) => {
+        if(window.confirm('Are you sure you want to delete this feedback?')){
+            setFeedback(
+                feedback.filter((item) => item.id !== id),
+                //item.id is referring to the array directly and comparing it to the id passed in
+                // filter returns an array (minus the item that we are deleting. with react, it's better to return a new array than delete directly from state)
+            )
+        }
+    }
     
 
     
@@ -21,7 +30,11 @@ function App() {
     <>
         <Header />
         <div className="container">
-            <FeedbackList feedback={feedback} />
+            <FeedbackList 
+            feedback={feedback}
+            setFeedback={setFeedback} 
+            handleDelete={deleteFeedback}
+            />
         </div>
     </>
   );
