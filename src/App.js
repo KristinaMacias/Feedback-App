@@ -1,9 +1,9 @@
 import React from "react";
 import {useState, useEffect} from 'react'
-import FeedbackList from "./components/FeedBackList";
+import FeedbackList from "./components/FeedbackList";
 import Header from "./components/Header";
 import FeedbackData from "./data/FeedbackData";
-
+import FeedbackStats from "./components/FeedbackStats";
 
 
 
@@ -23,13 +23,12 @@ function App() {
     }
     
 
-    
-
   return (
     console.log(feedback),
     <>
         <Header />
         <div className="container">
+            <FeedbackStats feedback={feedback} />
             <FeedbackList 
             feedback={feedback}
             setFeedback={setFeedback} 
