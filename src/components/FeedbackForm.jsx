@@ -1,17 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import RatingSelect from "./RatingSelect";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
 
 function FeedbackForm() {
   // component state
   const [text, setText] = useState(""); //for input text
+  const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true); //to validate input
   const [message, setMessage] = useState(""); //message for validation
 
   //update text with user input from form
   //cant simply check text length since that waits until the next render
-  const handleTextChange = ({ target: { value } }) => { // get the value passed in. if its "", then disable button and no message
+  const handleTextChange = ({ target: { value } }) => { // get the value(destructured) passed in. if its "", then disable button and no message
     console.log("printing value from handleChange: ", value);
 
     if (value === '') {
@@ -26,18 +28,19 @@ function FeedbackForm() {
     }
     setText(value);
   }
-
+ 
   return (
     <Card>
       <form>
         <h2>How would you rate your experience?</h2>
+        {/* code below takes in the rating and updates the state with it */}
+        <RatingSelect select={setRating} selected={rating}/>
         <div className="input-group">
           <input
             onChange={handleTextChange}
             value={text}
             type="text"
             placeholder="Share your experience"
-            minLength={10}
           />
           <Button type="submit" version="primary" isDisabled={btnDisabled}>
             Send
