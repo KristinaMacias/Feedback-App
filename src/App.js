@@ -13,11 +13,14 @@ function App() {
     // const [feedback, setFeedback] = useState(FeedbackData);
     const [feedback, setFeedback] = useState(FeedbackData);
 
+
+    //updates the global state with new feedback object 
     const addFeedback = (newFeedback) => {
         newFeedback.id = uuidv4()
-        setFeedback([...feedback, newFeedback])
+        setFeedback([...feedback, newFeedback]); //destructure the feedback array and add the new feedback to it
     }
 
+    //deletes feedback from the global state
     const deleteFeedback = (id) => {
         if(window.confirm('Are you sure you want to delete this feedback?')){
             setFeedback(
