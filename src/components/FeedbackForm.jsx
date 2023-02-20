@@ -4,7 +4,7 @@ import RatingSelect from "./RatingSelect";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
 
-function FeedbackForm() {
+function FeedbackForm( {handleAdd} ) {
   // component state
   const [text, setText] = useState(""); //for input text
   const [rating, setRating] = useState(10); //holds rating
@@ -33,11 +33,15 @@ function FeedbackForm() {
   const handleSubmit = (e)  => {
     e.preventDefault();
 
-    if(text.trim().length >= 10) {
+    if(text.trim().length >= 10) { 
+      // builds a new object with the two state variables
       const newFeedback = {
         text, rating
       }
-      console.log(newFeedback)
+      handleAdd(newFeedback);
+      setText('');
+      setRating(10);
+
     }
   }
  
