@@ -1,5 +1,5 @@
 import React from 'react'
-import { propTypes } from 'react-bootstrap/esm/Image';
+import PropTypes from 'prop-types'
 
 function FeedbackStats({ feedback }) {
 
@@ -24,8 +24,8 @@ function FeedbackStats({ feedback }) {
   )
 }
 
-FeedbackStats.prototype = {
-    feedback: propTypes.array
+FeedbackStats.propType = {
+    feedback: PropTypes.array
 }
 
 export default FeedbackStats

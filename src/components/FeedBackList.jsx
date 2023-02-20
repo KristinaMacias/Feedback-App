@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import FeedbackItem from "./FeedbackItem";
-import { propTypes } from "react-bootstrap/esm/Image";
+
 
 function FeedbackList({ feedback, handleDelete }) {
   console.log("feedback as props: ", feedback);

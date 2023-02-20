@@ -4,8 +4,6 @@ import PropTypes from 'prop-types'
 import Card from "./shared/Card";
 
 function FeedbackItem({ item, handleDelete }) {
-
-
   return (
     <div>
         <Card reverse={item.rating < 7 ? true: false}>
