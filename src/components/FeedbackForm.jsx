@@ -7,7 +7,7 @@ import Button from "./shared/Button";
 function FeedbackForm() {
   // component state
   const [text, setText] = useState(""); //for input text
-  const [rating, setRating] = useState(10);
+  const [rating, setRating] = useState(10); //holds rating
   const [btnDisabled, setBtnDisabled] = useState(true); //to validate input
   const [message, setMessage] = useState(""); //message for validation
 
@@ -28,10 +28,22 @@ function FeedbackForm() {
     }
     setText(value);
   }
+
+  // handle submit
+  const handleSubmit = (e)  => {
+    e.preventDefault();
+
+    if(text.trim().length >= 10) {
+      const newFeedback = {
+        text, rating
+      }
+      console.log(newFeedback)
+    }
+  }
  
   return (
     <Card>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>How would you rate your experience?</h2>
         {/* code below takes in the rating and updates the state with it */}
         <RatingSelect select={setRating} selected={rating}/>
