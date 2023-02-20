@@ -9,7 +9,7 @@ function FeedbackStats({ feedback }) {
         return accumulator + currentValue.rating;
     }, 0) / feedback.length;
 
-    average = average.toFixed(1);
+    average = average.toFixed(1).replace(/[.,]0$/, ""); //1 fixed decimal point, but will remove the 0 if only zero
 
   return (
     <div className='feedback-stats'>
@@ -17,6 +17,7 @@ function FeedbackStats({ feedback }) {
             {feedback.length} Reviews
         </h4>
         <h4>
+            {/* ternary to check for NaN and replace with 0 */}
             Average Rating: {isNaN(average) ? 0 : average}
         </h4>
     </div>
@@ -24,7 +25,7 @@ function FeedbackStats({ feedback }) {
 }
 
 FeedbackStats.prototype = {
-    average: propTypes.number
+    feedback: propTypes.array
 }
 
 export default FeedbackStats
