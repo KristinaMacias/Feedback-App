@@ -16,8 +16,8 @@ function App() {
 
     //updates the global state with new feedback object 
     const addFeedback = (newFeedback) => {
-        newFeedback.id = uuidv4()
-        setFeedback([...feedback, newFeedback]); //destructure the feedback array and add the new feedback to it
+        newFeedback.id = uuidv4(); //gives each object a new id
+        setFeedback([newFeedback, ...feedback]); //destructure the feedback array and add the new feedback to it
     }
 
     //deletes feedback from the global state

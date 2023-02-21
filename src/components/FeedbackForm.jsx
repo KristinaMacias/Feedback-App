@@ -38,9 +38,11 @@ function FeedbackForm( {handleAdd} ) {
       const newFeedback = {
         text, rating
       }
-      handleAdd(newFeedback);
-      setText('');
+
+      handleAdd(newFeedback); //callback to app.js with newFeedback object created above with text and rating
       setRating(10);
+      setText('');
+
 
     }
   }

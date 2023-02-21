@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import { motion, AnimatePresence } from 'framer-motion'
+import PropTypes from "prop-types";
 import FeedbackItem from "./FeedbackItem";
-
 
 function FeedbackList({ feedback, handleDelete }) {
   console.log("feedback as props: ", feedback);
@@ -11,20 +11,26 @@ function FeedbackList({ feedback, handleDelete }) {
   }
 
   return (
-    <div className="feedback-list">
-      {feedback.map((item) => (
-        <FeedbackItem 
-        key={item.id} 
-        item={item}
-        // passing the function upwards to app
-        handleDelete={handleDelete} />
-      ))}
+    <div className='feedback-list'>
+      <AnimatePresence>
+        {feedback.map((item) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            layout
+          >
+            <FeedbackItem key={item.id} item={item} handleDelete={handleDelete}  />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
-  )
+  );
 }
 
-FeedbackList.propType = {
-  feedback: PropTypes.array
-}
+FeedbackList.propTypes = {
+  feedback: PropTypes.array,
+};
 
 export default FeedbackList;
